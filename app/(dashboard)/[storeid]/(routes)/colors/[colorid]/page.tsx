@@ -1,5 +1,4 @@
 import ColorForm from "@/components/form/ColorForm";
-import SizeForm from "@/components/form/SizeFOrm";
 import db from "@/lib/db";
 
 export default async function ColorPage({
