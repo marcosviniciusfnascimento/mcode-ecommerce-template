@@ -22,7 +22,7 @@
       "@/*": ["./*"]
     }
   },
-  "files": ["./types.d.ts"],
+  "files": ["./types.d.ts", "./next-auth.d.ts"],
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
 }

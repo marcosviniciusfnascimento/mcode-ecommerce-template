@@ -16,6 +16,8 @@ import { Input } from "../ui/input";
 import Link from "next/link";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
+import logo from "../../app/assets/Mcode.tsx.svg";
 
 const FormSchema = z.object({
   email: z.string().min(1, "Email is required").email("Invalid email"),
@@ -46,15 +48,23 @@ export default function LoginForm() {
     if (signInData?.error) {
       console.log(signInData.error);
     } else {
-      router.push("/home");
+      router.push("/");
     }
     console.log(signInData);
   };
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="w-80 dark">
-        <div className="space-y-2">
+      <h5 className="text-slate-200 text-lg font-extrabold py-4 max-md:text-md text-center">
+        {" "}
+        Welcome to my E-commerce Template{" "}
+      </h5>
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="w-80 dark rounded-lg bg-white/10 backdrop-blur-3xl p-5 items-center justify-center flex flex-col"
+      >
+        <Image src={logo} alt="logo" width={140} height={80} />
+        <div className="space-y-2 w-full">
           <FormField
             control={form.control}
             name="email"
@@ -96,8 +106,8 @@ export default function LoginForm() {
       <p className="text-center text-sm text-gray-600 mt-2">
         If you don&apos;t have an account, please&nbsp;
       </p>
-      <Link className="hover:underline mt-3 " href="/sign-up">
-        <Button className="dark hover:bg-teal-300">Sign up</Button>
+      <Link className="hover:underline mt-3 " href="/register">
+        Sign up
       </Link>
     </Form>
   );
