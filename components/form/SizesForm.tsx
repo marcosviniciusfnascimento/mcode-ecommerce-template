@@ -175,5 +175,3 @@ export default function SizeForm(props: SizeFormProps) {
     </>
   );
 }
-
-// 03:57:00

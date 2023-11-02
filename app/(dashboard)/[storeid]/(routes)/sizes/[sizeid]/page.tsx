@@ -1,4 +1,4 @@
-import SizeForm from "@/components/form/SizeFOrm";
+import SizeForm from "@/components/form/SizesForm";
 import db from "@/lib/db";
 
 export default async function SizePage({
