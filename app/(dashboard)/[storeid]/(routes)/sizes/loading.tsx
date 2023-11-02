@@ -1,3 +1,5 @@
+"use client";
+
 import Loader from "@/components/Layout/Loader";
 
 const Loading = () => {
