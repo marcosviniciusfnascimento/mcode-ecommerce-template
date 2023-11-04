@@ -7,7 +7,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { ColorColumn } from "./columns";
+import { ProductColumn } from "./columns";
 
 import { Copy, Edit, MoreHorizontal, Trash } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -18,7 +18,7 @@ import axios from "axios";
 import AlertModal from "@/components/modals/alertModal";
 
 interface CellActionProps {
-  data: ColorColumn;
+  data: ProductColumn;
 }
 
 export default function CellAction(props: CellActionProps) {
@@ -36,13 +36,11 @@ export default function CellAction(props: CellActionProps) {
   const onDelete = async () => {
     try {
       setLoading(true);
-      await axios.delete(`/api/${params.storeid}/colors/${data.id}`);
+      await axios.delete(`/api/${params.storeid}/products/${data.id}`);
       router.refresh();
-      toast.success("Cor excluída");
+      toast.success("Produto excluído");
     } catch (error) {
-      toast.error(
-        "Garanta que excluiu todos os produtos que utilizam essa cor primeiro!"
-      );
+      toast.error("Algo deu errado!");
     } finally {
       setLoading(false);
       setOpen(false);
@@ -68,7 +66,9 @@ export default function CellAction(props: CellActionProps) {
           <DropdownMenuLabel>Ações</DropdownMenuLabel>
           <DropdownMenuItem
             className="cursor-pointer"
-            onClick={() => router.push(`/${params.storeid}/colors/${data.id}`)}
+            onClick={() =>
+              router.push(`/${params.storeid}/products/${data.id}`)
+            }
           >
             <Edit className="mr-2 h-4 w-4" />
             Editar

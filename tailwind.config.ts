@@ -12,9 +12,6 @@ module.exports = {
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    fontFamily: {
-      sans: ["var(--font-sans)", ...fontFamily.sans],
-    },
     container: {
       center: true,
       padding: "2rem",

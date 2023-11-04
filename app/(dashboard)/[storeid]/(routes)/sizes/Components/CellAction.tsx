@@ -78,7 +78,7 @@ export default function CellAction(props: CellActionProps) {
             onClick={() => onCopy(data.id)}
           >
             <Copy className="mr-2 h-4 w-4" />
-            Copiar Id
+            Copiar ID
           </DropdownMenuItem>{" "}
           <DropdownMenuItem
             className="cursor-pointer"
