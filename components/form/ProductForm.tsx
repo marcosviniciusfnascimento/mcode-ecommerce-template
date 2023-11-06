@@ -197,7 +197,7 @@ export default function ProductForm(props: ProductFormProps) {
                       onValueChange={field.onChange}
                     >
                       <FormControl>
-                        <SelectTrigger className="text-start w-48">
+                        <SelectTrigger className="text-start w-full">
                           <SelectValue
                             defaultValue={field.value}
                             placeholder="Selecione uma categoria"
@@ -231,7 +231,7 @@ export default function ProductForm(props: ProductFormProps) {
                       onValueChange={field.onChange}
                     >
                       <FormControl>
-                        <SelectTrigger className="text-start w-48">
+                        <SelectTrigger className="text-start w-full">
                           <SelectValue
                             defaultValue={field.value}
                             placeholder="Selecione um tamanho"
@@ -265,7 +265,7 @@ export default function ProductForm(props: ProductFormProps) {
                       onValueChange={field.onChange}
                     >
                       <FormControl>
-                        <SelectTrigger className="text-start w-48">
+                        <SelectTrigger className="text-start w-full">
                           <SelectValue
                             defaultValue={field.value}
                             placeholder="Selecione uma cor"
@@ -357,7 +357,7 @@ export default function ProductForm(props: ProductFormProps) {
             variant="solid"
             disabled={loading}
             isLoading={loading}
-            className="dark rounded-lg"
+            className="rounded-md bg-primary text-white dark:text-black font-semibold"
             type="submit"
           >
             {action}

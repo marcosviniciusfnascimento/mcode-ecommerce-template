@@ -4,7 +4,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { Input } from "../ui/input";
-import { Button } from "../ui/button";
 import {
   Form,
   FormField,
@@ -18,6 +17,8 @@ import { useRouter } from "next/navigation";
 import { useMutation } from "@tanstack/react-query";
 import Image from "next/image";
 import logo from "../../app/assets/Mcode.tsx.svg";
+import { Button } from "@nextui-org/react";
+import { useState } from "react";
 
 const FormSchema = z
   .object({
@@ -35,6 +36,8 @@ const FormSchema = z
   });
 
 export default function SignUpForm() {
+  const [loading, setLoading] = useState(false);
+
   const router = useRouter();
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -48,11 +51,13 @@ export default function SignUpForm() {
 
   const { mutate: createUser } = useMutation({
     mutationFn: async (values: z.infer<typeof FormSchema>) => {
+      setLoading(true);
       const response = await axios.post("/api/user/", values);
 
       if (response.status === 201) {
         router.push("/login");
       } else {
+        setLoading(false);
         console.log("Failed to create new user");
       }
     },
@@ -66,7 +71,7 @@ export default function SignUpForm() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="dark p-5 bg-white/10 backdrop-blur-3xl rounded-lg flex flex-col items-center justify-center"
+        className="p-5 bg-white/70 backdrop-blur-3xl rounded-lg flex flex-col items-center justify-center"
       >
         <Image src={logo} alt="logo" width={140} height={80} />
         <div className="grid grid-cols-1 w-80 gap-5 ">
@@ -103,7 +108,11 @@ export default function SignUpForm() {
               <FormItem>
                 <FormLabel>Password</FormLabel>
                 <FormControl>
-                  <Input placeholder="Type here..." {...field} />
+                  <Input
+                    placeholder="Type here..."
+                    {...field}
+                    type="password"
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -117,13 +126,21 @@ export default function SignUpForm() {
               <FormItem>
                 <FormLabel>Confirm Password</FormLabel>
                 <FormControl>
-                  <Input placeholder="Type here..." {...field} />
+                  <Input
+                    placeholder="Type here..."
+                    {...field}
+                    type="password"
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
-          <Button type="submit" className="hover:bg-teal-300">
+          <Button
+            type="submit"
+            className="bg-primary text-primary"
+            isLoading={loading}
+          >
             Create
           </Button>
         </div>

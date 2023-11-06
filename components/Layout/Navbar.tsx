@@ -1,4 +1,3 @@
-import { Avatar } from "@nextui-org/react";
 import { MainNav } from "./MainNav";
 import UserInfo from "./UserInfo";
 import StoreSwitcher from "./storeSwitcher";

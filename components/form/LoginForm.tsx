@@ -3,7 +3,6 @@
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Button } from "../ui/button";
 import {
   Form,
   FormField,
@@ -18,6 +17,8 @@ import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import logo from "../../app/assets/Mcode.tsx.svg";
+import { useState } from "react";
+import { Button } from "@nextui-org/react";
 
 const FormSchema = z.object({
   email: z.string().min(1, "Email is required").email("Invalid email"),
@@ -28,6 +29,8 @@ const FormSchema = z.object({
 });
 
 export default function LoginForm() {
+  const [loading, setLoading] = useState(false);
+
   const router = useRouter();
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -38,6 +41,7 @@ export default function LoginForm() {
   });
 
   const onSubmit = async (values: z.infer<typeof FormSchema>) => {
+    setLoading(true);
     const credentials = {
       email: values.email,
       password: values.password,
@@ -48,9 +52,9 @@ export default function LoginForm() {
     if (signInData?.error) {
       console.log(signInData.error);
     } else {
+      setLoading(false);
       router.push("/");
     }
-    console.log(signInData);
   };
 
   return (
@@ -61,7 +65,7 @@ export default function LoginForm() {
       </h5>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="w-80 dark rounded-lg bg-white/10 backdrop-blur-3xl p-5 items-center justify-center flex flex-col"
+        className="w-80 rounded-lg bg-white/70 backdrop-blur-3xl p-5 items-center justify-center flex flex-col"
       >
         <Image src={logo} alt="logo" width={140} height={80} />
         <div className="space-y-2 w-full">
@@ -96,7 +100,11 @@ export default function LoginForm() {
             )}
           />
         </div>
-        <Button className="w-full mt-6 hover:bg-teal-300" type="submit">
+        <Button
+          isLoading={loading}
+          className="w-full mt-6 bg-primary text-white"
+          type="submit"
+        >
           Sign in
         </Button>
       </form>

@@ -167,7 +167,7 @@ export default function BillboardForm(props: BillboardFormProps) {
             variant="solid"
             disabled={loading}
             isLoading={loading}
-            className="dark rounded-lg"
+            className="rounded-md bg-primary text-white dark:text-black font-semibold"
             type="submit"
           >
             {action}
