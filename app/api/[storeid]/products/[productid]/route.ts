@@ -4,16 +4,16 @@ import { NextResponse } from "next/server";
 
 export async function GET(
   req: Request,
-  { params }: { params: { prodcutid: string } }
+  { params }: { params: { productid: string } }
 ) {
   try {
-    if (!params.prodcutid) {
+    if (!params.productid) {
       return new NextResponse("Product Id is required", { status: 400 });
     }
 
     const product = await db.product.findUnique({
       where: {
-        id: params.prodcutid,
+        id: params.productid,
       },
       include: {
         images: true,
