@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "m/code | E-Commerce Template",
+  title: "m/code | E-Commerce Dashboard",
   description: "E-Commerce with dashboard + store + CMS",
 };
 
