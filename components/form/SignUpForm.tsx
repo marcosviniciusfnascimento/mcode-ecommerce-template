@@ -138,7 +138,7 @@ export default function SignUpForm() {
           />
           <Button
             type="submit"
-            className="bg-primary text-primary"
+            className="bg-primary text-slate-200"
             isLoading={loading}
           >
             Create
