@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "m/code | E-Commerce Dashboard",
-  description: "E-Commerce with dashboard + store + CMS",
+  description: "E-Commerce Admin with dashboard + store + CMS",
 };
 
 export default function RootLayout({
