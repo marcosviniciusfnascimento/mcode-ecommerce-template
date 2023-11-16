@@ -59,13 +59,13 @@ export default function LoginForm() {
 
   return (
     <Form {...form}>
-      <h5 className="text-slate-200 text-lg font-extrabold py-4 max-md:text-md text-center">
+      <h5 className="text-purple-950 text-lg font-extrabold max-w-sm py-4 max-md:text-md text-center">
         {" "}
-        Welcome to my E-commerce Template{" "}
+        Welcome to my E-commerce Admin Dashboard{" "}
       </h5>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="w-80 rounded-lg bg-white/70 backdrop-blur-3xl p-5 items-center justify-center flex flex-col"
+        className="w-80 rounded-lg bg-slate-300 backdrop-blur-3xl p-5 items-center justify-center flex flex-col"
       >
         <Image src={logo} alt="logo" width={140} height={80} />
         <div className="space-y-2 w-full">
@@ -74,9 +74,13 @@ export default function LoginForm() {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Email</FormLabel>
+                <FormLabel className="text-zinc-800">Email</FormLabel>
                 <FormControl>
-                  <Input placeholder="mail@example.com" {...field} />
+                  <Input
+                    placeholder="mail@example.com"
+                    {...field}
+                    className="bg-white text-zinc-800"
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -87,11 +91,12 @@ export default function LoginForm() {
             name="password"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Password</FormLabel>
+                <FormLabel className="text-zinc-800">Password</FormLabel>
                 <FormControl>
                   <Input
                     type="password"
                     placeholder="Enter your password"
+                    className="bg-white text-zinc-800"
                     {...field}
                   />
                 </FormControl>
@@ -102,19 +107,19 @@ export default function LoginForm() {
         </div>
         <Button
           isLoading={loading}
-          className="w-full mt-6 bg-primary text-white"
+          className="w-full mt-6 bg-purple-900 text-white"
           type="submit"
         >
           Sign in
         </Button>
       </form>
-      <div className="mx-auto my-4 flex items-center justify-evenly w-80 before:mr-4 before:block before:h-px before:flex-grow before:bg-stone-400 after:ml-4 after:block after:h-px after:flex-grow after:bg-stone-400">
+      <div className="mx-auto my-4 flex items-center justify-evenly w-80 before:mr-4 before:block before:h-px before:flex-grow before:bg-stone-400 text-zinc-800 after:ml-4 after:block after:h-px after:flex-grow after:bg-stone-400">
         or
       </div>
       <p className="text-center text-sm text-gray-600 mt-2">
         If you don&apos;t have an account, please&nbsp;
       </p>
-      <Link className="hover:underline mt-3 " href="/register">
+      <Link className="hover:underline mt-3 text-zinc-800 " href="/register">
         Sign up
       </Link>
     </Form>

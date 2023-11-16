@@ -71,7 +71,7 @@ export default function SignUpForm() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="p-5 bg-white/70 backdrop-blur-3xl rounded-lg flex flex-col items-center justify-center"
+        className="p-5 bg-slate-300 backdrop-blur-3xl rounded-lg flex flex-col items-center justify-center"
       >
         <Image src={logo} alt="logo" width={140} height={80} />
         <div className="grid grid-cols-1 w-80 gap-5 ">
@@ -80,9 +80,13 @@ export default function SignUpForm() {
             name="name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Username</FormLabel>
+                <FormLabel className="text-zinc-800">Username</FormLabel>
                 <FormControl>
-                  <Input placeholder="Type here..." {...field} />
+                  <Input
+                    placeholder="Type here..."
+                    {...field}
+                    className="bg-white text-zinc-800"
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -93,9 +97,13 @@ export default function SignUpForm() {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Email</FormLabel>
+                <FormLabel className="text-zinc-800">Email</FormLabel>
                 <FormControl>
-                  <Input placeholder="Type here..." {...field} />
+                  <Input
+                    placeholder="Type here..."
+                    {...field}
+                    className="bg-white text-zinc-800"
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -106,12 +114,13 @@ export default function SignUpForm() {
             name="password"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Password</FormLabel>
+                <FormLabel className="text-zinc-800">Password</FormLabel>
                 <FormControl>
                   <Input
                     placeholder="Type here..."
                     {...field}
                     type="password"
+                    className="bg-white text-zinc-800"
                   />
                 </FormControl>
                 <FormMessage />
@@ -124,12 +133,15 @@ export default function SignUpForm() {
             name="confirmPassword"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Confirm Password</FormLabel>
+                <FormLabel className="text-zinc-800">
+                  Confirm Password
+                </FormLabel>
                 <FormControl>
                   <Input
                     placeholder="Type here..."
                     {...field}
                     type="password"
+                    className="bg-white text-zinc-800"
                   />
                 </FormControl>
                 <FormMessage />
@@ -138,7 +150,7 @@ export default function SignUpForm() {
           />
           <Button
             type="submit"
-            className="bg-primary text-slate-200"
+            className="bg-purple-900 text-slate-200"
             isLoading={loading}
           >
             Create
