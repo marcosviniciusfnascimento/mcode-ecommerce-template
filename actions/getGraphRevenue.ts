@@ -38,11 +38,11 @@ export const getGraphRevenue = async (storeId: string) => {
     },
     {
       name: "Feb",
-      total: 2500,
+      total: 0,
     },
     {
       name: "Mar",
-      total: 3500,
+      total: 0,
     },
     {
       name: "Apr",
@@ -58,23 +58,23 @@ export const getGraphRevenue = async (storeId: string) => {
     },
     {
       name: "Jul",
-      total: 1599,
+      total: 0,
     },
     {
       name: "Aug",
-      total: 2500,
+      total: 0,
     },
     {
       name: "Sep",
-      total: 2800,
+      total: 0,
     },
     {
       name: "Oct",
-      total: 3200,
+      total: 0,
     },
     {
       name: "Nov",
-      total: 1200,
+      total: 0,
     },
     {
       name: "Dec",

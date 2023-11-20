@@ -9,11 +9,11 @@ import { BillboardColumns, columns } from "./columns";
 import { DataTable } from "@/components/ui/dataTable";
 import ApiList from "@/components/ui/apiList";
 import { Separator } from "@/components/ui/separator";
-import { CategoriesColumns } from "../../categories/Components/columns";
 
 interface BillboardClientProps {
   data: BillboardColumns[];
 }
+
 export default function BillboardClient({ data }: BillboardClientProps) {
   const router = useRouter();
   const params = useParams();
